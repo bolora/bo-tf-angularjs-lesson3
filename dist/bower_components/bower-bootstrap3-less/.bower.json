@@ -1,0 +1,21 @@
+{
+  "name": "bootstrap3-less",
+  "version": "3.0.3",
+  "main": "less/bootstrap.less",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "homepage": "https://github.com/kyleget/bower-bootstrap3-less",
+  "_release": "3.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.0.3",
+    "commit": "7c8318750ce4fe845072ecd0cb8697a4238057e3"
+  },
+  "_source": "git://github.com/kyleget/bower-bootstrap3-less.git",
+  "_target": "~3.0.3",
+  "_originalSource": "bower-bootstrap3-less",
+  "_direct": true
+}
