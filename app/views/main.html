@@ -1,0 +1,72 @@
+
+<div id="madlib-app" ng-controller="madlibController">
+  <div class="header">
+    <h4>Thinkful Angular JS Course - Lesson 2 <span class="pull-right">ngMadLibs App</span></h4>
+  </div>
+
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-sm-3"><img src="images/mad-lib-happy-face.png" width="100%"/></div>
+      <div class="col-sm-9"><img src="images/ng-mad-libs-logo.png" width="100%"/></div>
+    </div>
+  </div>
+
+  <script type="text/ng-template" id="form-item">
+    
+      <label for="{{item.name}}" class="col-sm-4 control-label">{{item.name}}</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="{{item.name}}" ng-model="item.value">
+      </div>
+  </script>
+
+  <h1>To be, or not to be...</h1>
+  <p>Change the information below and submit to see a Hamlet inspired madlib.</p>
+  <p><small>Note: You don't have to change all values!</small></p>
+
+  <form class="form-horizontal" role="form">
+    <div class="form-group" ng-include="'form-item'" ng-repeat="item in words"></div>
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-8">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#results" ng-click="update()">See your madlib</button>
+      </div>
+    </div>
+  </form>
+
+
+<div class="modal fade" id="results">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Here is your madlib</h4>
+      </div>
+      <div class="modal-body">
+        
+        <p>To be, or not to {{madlib.verb1}}, -- that is the {{madlib.noun1}};</p>
+        <p>  Whether 'tis nobler in the {{madlib.noun3}} to suffer</p>
+        <p>  The slings and {{madlib.pnoun1}} of {{madlib.adjetive1}} fortune,</p>
+        <p>  Or to take {{madlib.pnoun2}} against a sea of {{madlib.pnoun3}},</p>
+        <p>  And by {{madlib.verb2}} end them. To die, -- to {{madlib.verb3}}, -- </p>
+        <p>  No more; and by a {{madlib.verb3}} to say we end </p>
+        <p>  The {{madlib.noun4}} and the {{madlib.number}} natural shocks </p>
+        <p>  That flesh is {{madlib.noun5}} to,-- 'tis a {{madlib.noun6}} </p>
+        <p>  {{madlib.adverb1}} to be wish'd. To die, --- to {{madlib.verb3}},-- </p>
+        <p>  To {{madlib.verb3}}! perchance to {{madlib.verb4}}! ay, there's the {{madlib.noun7}}; </p>
+        <p>  For in that {{madlib.verb3}} of death what {{madlib.pnoun4}} may come </p>
+        <p>  When we have {{madlib.verb5}} off this {{madlib.adjetive2}} coil, </p>
+        <p>  Must give us {{madlib.noun8}}....</p>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+  <div class="footer">
+      <strong>Bo Lora - 2014</strong>
+  </div>
+</div>
