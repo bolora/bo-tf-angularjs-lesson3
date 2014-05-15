@@ -57,7 +57,7 @@ angular.module('boTfAngularjsLesson2App', [
       { 
         name:"Plural noun",
         id:"pnoun3",
-        value:"birds"
+        value:"cows"
       },
       { 
         name:"Verb ending in -ing ",
