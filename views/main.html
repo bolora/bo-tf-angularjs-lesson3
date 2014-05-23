@@ -1,0 +1,155 @@
+<div class="header">
+  <h3 class="text-muted">Bo Lora - Lesson 3 - Waitstaff Calculator</h3>
+  <hr/>
+</div>
+
+
+<h1>Waistaff Calculator</h1>
+
+<div class="alert" ng-class="{'alert-danger':errorMessage,'alert-warning':infoMessage}" ng-show="errorMessage || infoMessage">
+  <button type="button" class="close" ng-click="errorMessage=null">&times;</button>
+  <span ng-if="errorMessage"><strong>Oh snap! </strong> {{errorMessage}}</span>
+  <span ng-if="infoMessage"><strong>Wow! </strong> {{infoMessage}}</span>
+</div>
+<div class="row">
+  <div class="col-sm-8">
+    
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Enter the Meal Details</h3>
+    </div>
+    <div class="panel-body">
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label for="base-price" class="col-sm-4 control-label">Base Meal Price $</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="base-price" ng-model="transaction.basePrice">
+          </div>
+        </div>
+        <div class="form-group clearfix">
+          <label for="tax-rate" class="col-sm-4 control-label">Tax Rate %</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="tax-rate" ng-model="taxRate">
+          </div>
+        </div>
+        <div class="form-group clearfix">
+          <label for="tip-percentage" class="col-sm-4 control-label">Tip Percentage %</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="tip-percentage" ng-model="tipPercentage">
+          </div>
+        </div>
+
+        <div class="form-group clearfix">
+          <div class="col-sm-offset-4 col-sm-10">
+            <button type="submit" class="btn btn-default" ng-click="calculate()">Submit</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+
+
+  </div>
+  <div class="col-sm-4">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Last Customer Charges</h3>
+      </div>
+      <div class="panel-body" ng-if="transactions.length > 0">
+        <div class="row">
+          <label for="base-price" class="col-sm-4 control-label">Sub Total</label>
+          <div class="col-sm-2">
+            {{lastTransaction.subtotal | currency}}
+          </div>
+        </div>
+        <div class="row">
+          <label for="tax-rate" class="col-sm-4 control-label">Tip</label>
+          <div class="col-sm-2">
+            {{lastTransaction.tipAmount | currency}}
+          </div>
+        </div>
+        <div class="row">
+          <label for="tax-rate" class="col-sm-4 control-label">Total</label>
+          <div class="col-sm-2" >
+            {{lastTransaction.total | currency}}
+          </div>
+        </div>      
+      </div>
+      <div class="panel-body" ng-if="transactions.length == 0">No meals recorded yet </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">My Earnings Info</h3>
+      </div>
+      <div class="panel-body" ng-if="transactions.length > 0">
+
+        <div class="row">
+          <label for="base-price" class="col-sm-6 control-label">Tip Total</label>
+          <div class="col-sm-6">
+            {{totals.tips | currency}}
+          </div>
+        </div>
+        <div class="row">
+          <label for="tax-rate" class="col-sm-6 control-label">Meal count</label>
+          <div class="col-sm-6">
+            {{totals.count}} {{totals.countLabel}}
+          </div>
+        </div>
+        <div class="row">
+          <label for="tax-rate" class="col-sm-6 control-label">Average Tip per meal</label>
+          <div class="col-sm-6" >
+            {{totals.tipsAvg | currency}}
+          </div>
+        </div>    
+
+      </div>
+      <div class="panel-body" ng-if="transactions.length == 0">No meals recorded yet </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <button class="btn btn-default btn-xs pull-right" ng-click="calculate(true)">Reset</button>
+    <h3 class="panel-title">Meal Transactions </h3>
+  </div>
+  <div class="panel-body">
+
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Customer #</th>
+          <th>Base Price</th>
+          <th>Subtotal</th>
+          <th>Tip Amount</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in transactions">
+          <td>{{$index+1}}</td>
+          <td>{{item.basePrice | currency}}</td>
+          <td>{{item.subtotal | currency}}</td>
+          <td>{{item.tipAmount | currency}}</td>
+          <td>{{item.total | currency}}</td>
+        </tr>
+        <tr ng-if="transactions.length == 0"><td colspan="5">No meals recorded yet</td></tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+
+<div class="footer">
+  <hr/>
+  <p><a href="http://bit.ly/thinkful-bolora" target="_new">Bo Lora - 2014 - Thinkful Angular JS course</a></p>
+</div>
